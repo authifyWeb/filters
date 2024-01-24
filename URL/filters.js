@@ -297,7 +297,39 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         link = hostname + '/' + path1;
         var output = compare(link, href);
         return output;
-    } else if (hostname == "addons.mozilla.org")
+    }
+    else if(domain=="gravatar.com"){
+        if(hostname=="blog.gravatar.com"||hostname=="docs.gravatar.com"||hostname=="support.gravatar.com"){link=domain;}
+        else{
+          var path1=pathname.split('/')[1].toLowerCase();
+          if(path1=="connect"||path1==""){link=domain;}
+          else{link=domain+'/'+path1;}
+        }
+        var output = compare(link,href); return output;
+      }
+      else if(domain=="wordpress.com"){
+        link=hostname;
+        var output = compare(link,href); return output;
+      }
+      else if(domain=="medium.com"){
+        if((hostname !="medium.com")&& (hostname !="policy.medium.com"||hostname!="blog.medium.com"||hostname!="help.medium.com")){link=hostname;}
+        else{
+          var path1=pathname.split('/')[1].toLowerCase();
+          if(path1=="creators"||path1=="about"||path1=="jobs-at-medium"||path1==""||path1=="tag"||path1=="membership"||path1=="plans"){link=domain;}
+          else{link=hostname+'/'+path1;}
+        }
+        var output = compare(link,href); return output;
+      }
+      else if(domain=="start.page"){
+        link=hostname;
+        var output = compare(link,href); return output;
+      }
+      else if(domain=="notion.site"){
+        link=hostname;
+        var output = compare(link,href); return output;
+      }
+    
+    else if (hostname == "addons.mozilla.org")
     /*Once the above condition is true, the function replaces the URL language to the the default en-US. This is used since mozilla supports multiple languages and the url structure is directly based on user language.  */
     {
         var lang = pathname.split('/')[1];
