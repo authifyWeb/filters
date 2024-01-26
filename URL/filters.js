@@ -333,7 +333,10 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
       var output=compare(link,href); return output;
     }
     else if(domain=="myportfolio.com"){
-        link=hostname; console.log(link); var output=compare(link,href); return output;
+        link=hostname; var output=compare(link,href); return output;
+    }
+    else if(domain=="featurebase.app"){
+        link=hostname; var output=compare(link,href); return output;
     }
     else if (hostname == "addons.mozilla.org")
     /*Once the above condition is true, the function replaces the URL language to the the default en-US. This is used since mozilla supports multiple languages and the url structure is directly based on user language.  */
