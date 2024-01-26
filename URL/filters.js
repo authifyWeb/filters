@@ -94,7 +94,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         var output = compare(link, link);
         return output;
     } else if (hostname == "play.google.com") {
-        link = hostname + pathname + search;
+        link = hostname + pathname + search.split('&')[0];;
         var output = compare(link, link);
         return output;
     } else if (hostname == "apps.apple.com") {
