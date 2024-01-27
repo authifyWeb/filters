@@ -338,6 +338,15 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
     else if(domain=="featurebase.app"){
         link=hostname; var output=compare(link,href); return output;
     }
+    else if(domain=="substack.com"){
+        if (hostname=="on.substack.com" || hostname=="support.substack.com"){link=domain;}
+        else if(hostname=="substack.com"){
+            path1=pathname.split('/')[1].toLowerCase();
+            if(path1.startsWith("@")){link=hostname+'/'+path1;}else{link=domain;}
+        }
+        else{link=hostname;}
+        var output=compare(link,href); return output;
+    }
     else if(domain=="lnk.bio"){path1=pathname.split('/')[1].toLowerCase();;
     if(path1=='all-features'|| path1=='agency' || path1=="signup"||path1=="login"||path1=="verification"||path1=="booking-calendar"||path1=="custom-domain"||path1=="shop"||path1=="newsletter"|| path1=="about"||path1=="press" || path1=="contact"||path1=="contacts"||path1=="gift-card"||path1=="advertise"){link=domain;}
     else{link=hostname+'/'+path1;}
