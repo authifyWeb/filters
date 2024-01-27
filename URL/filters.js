@@ -419,7 +419,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         return output;
     } else {
         link = domain;
-console.log(domain)
+
 
         var output = compare(link, hostname);
 
