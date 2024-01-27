@@ -338,6 +338,11 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
     else if(domain=="featurebase.app"){
         link=hostname; var output=compare(link,href); return output;
     }
+    else if(domain=="lnk.bio"){path1=pathname.split('/')[1].toLowerCase();;
+    if(path1=='all-features'|| path1=='agency' || path1=="signup"||path1=="login"||path1=="verification"||path1=="booking-calendar"||path1=="custom-domain"||path1=="shop"||path1=="newsletter"|| path1=="about"||path1=="press" || path1=="contact"||path1=="contacts"||path1=="gift-card"||path1=="advertise"){link=domain;}
+    else{link=hostname+'/'+path1;}
+    var output=compare(link,href); return output;
+    }
     else if (hostname == "addons.mozilla.org")
     /*Once the above condition is true, the function replaces the URL language to the the default en-US. This is used since mozilla supports multiple languages and the url structure is directly based on user language.  */
     {
@@ -405,7 +410,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         return output;
     } else {
         link = domain;
-
+console.log(domain)
 
         var output = compare(link, hostname);
 
