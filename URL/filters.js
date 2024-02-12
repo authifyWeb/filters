@@ -161,7 +161,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link, href);
         return output;
-    } else if (hostname == "www.t.me" || hostname == "www.telegram.me") {
+    } else if (hostname == "www.t.me" || hostname == "www.telegram.me" || hostname=="t.me") {
         path1 = pathname.split('/')[1].toLowerCase();
         if (path1 == "s") {
             link = hostname + '/' + pathname.split('/')[2].toLowerCase();
