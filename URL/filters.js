@@ -352,6 +352,11 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
     else{link=hostname+'/'+path1;}
     var output=compare(link,href); return output;
     }
+    else if(hostname=="pages.razorpay.com"){
+        path1=pathname.split('/')[1].toLowerCase();
+        link=hostname+'/'+path1;
+        var output=compare(link,href); return output;
+    }
     else if (hostname == "addons.mozilla.org")
     /*Once the above condition is true, the function replaces the URL language to the the default en-US. This is used since mozilla supports multiple languages and the url structure is directly based on user language.  */
     {
