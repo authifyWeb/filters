@@ -169,7 +169,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
             link = hostname + '/' + pathname.split('/')[1].toLowerCase();
         }
         var output = compare(link, href);
-        return output
+        return output;
     } else if (origin == "https://ko-fi.com" || origin == "https://www.buymeacoffee.com" || origin == "https://liberapay.com" || origin == "https://opencollective.com") {
 
         link = hostname + '/' + pathname.split('/')[1].toLowerCase();
@@ -422,7 +422,12 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         link = hostname;
         var output = compare(link, href);
         return output;
-    } else {
+    } else if(domain=="zohorecruit.in"){
+        link=hostname;
+        var output = compare(link, href); return output;
+    }
+    
+     else {
         link = domain;
 
 
