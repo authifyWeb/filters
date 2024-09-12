@@ -123,7 +123,13 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link, link);
         return output;
+    } else if(hostname=='fame.authifyweb.com' && pathname.split('/')[1]=='user'){
+        link=hostname+'/'+pathname.split('/')[1]+'/'+pathname.split('/')[2]; 
+        var output = compare(link, link);
+        return output;
     }
+
+            
     /* Mastodon Instances
         mastodon.social --- Mastodon gGmbH
         mastodon.online  --- Mastodon gGmbH
