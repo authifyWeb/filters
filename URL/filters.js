@@ -156,7 +156,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link, link);
         return output;
-    } else if(domain=="dev.to"){
+    } else if(hostname=="dev.to"){
       var path1=pathname.split('/')[1].toLowerCase();
       if(path1.startsWith('@')){path1=path1.replace('@',"")}
       link=hostname+'/'+path1;
