@@ -156,7 +156,15 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link, link);
         return output;
-    } else if (hostname == "loco.gg") {
+    } else if(domain=="dev.to"){
+      var path1=pathname.split('/')[1].toLowerCase();
+      if(path1.startsWith('@')){path1=path1.replace('@',"")}
+      link=hostname+'/'+path1;
+      var output=compare(link,href);
+      return output;
+    }
+    
+     else if (hostname == "loco.gg") {
         var path1 = pathname.split('/')[1];
         if (path1 == "stream" || path1 == "clips") {
             return `Info: Cannot verify individual streams or clips. Please submit the profile URL to verify.`;
