@@ -48,8 +48,8 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link, href);
         return output;
-    } else if (origin == "https://twitter.com") {
-
+    } else if (origin == "https://twitter.com" || domain=="x.com") {
+        hostname="twitter.com";
         link = hostname + '/' + pathname.split('/')[1].toLowerCase();
         var output = compare(link, link);
         return output;
