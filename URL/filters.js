@@ -1,4 +1,8 @@
-/*This filters.js file is actively maintained at https://github.com/authifyWeb/filters/tree/main/URL */
+/*
+This filters.js file is actively maintained at https://github.com/authifyWeb/filters/tree/main/URL 
+Copyright: authifyWeb
+Licensed: GPL3
+*/
 function filtering(url, href, origin, hostname, protocol, pathname, search, domain) {
 
     if (protocol != "https:") {
