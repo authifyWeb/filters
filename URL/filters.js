@@ -349,6 +349,15 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
             }
         var output = compare(link,href); return output;    
         }
+      else if(domain=="kickstarter.com"){
+        if(hostname!="www.kickstarter.com"){link=domain;}
+        else{var path1=pathname.split('/')[1].toLowerCase(); var path2=pathname.split('/')[2].toLowerCase();
+            if(path1=="profile"){link=domain+'/'+path1+'/'+path2;}
+            else if(path1=="projects"){link=domain+'/'+path1+'/'+path2;}
+            else{link=domain;}
+        }
+        var output = compare(link,href); return output;
+      }  
 
       else if(domain=="start.page"){
         link=hostname;
