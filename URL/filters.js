@@ -130,10 +130,10 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         var output = compare(link, link);
         return output;
     } else if(domain=='authifyweb.com'){
-        var path1=pathname.split('/')[1]?.toLowerCase(); var path2=pathname.split('/')[2]?.toLowerCase();
-        if(hostname!="fame.authifyweb.com" && hostname!="brand.authifyweb.com"){link=domain;}
+        var path1=pathname.split('/')[1]?.toLowerCase(); var path2=pathname.split('/')[2]?.toLowerCase(); 
+        if(hostname!="fame.authifyweb.com" && hostname!="brand.authifyweb.com" && hostname !="authifyweb.com"){link=domain;}
         else if(path1 !="fame" && path1 !="brand"){link=domain;}
-        else if(path1=="pages" || path1=="about"){link=domain;}
+        else if(path1=="pages"){link=domain;}
         else if(path1 =="fame"){link= "fame.authifyweb.com/user/" +path2;}
         else if(path1=="brand"){link="brand.authifyweb.com/org/"+ path2;}
         else if(hostname=="fame.authifyweb.com" || hostname=="brand.authifyweb.com"){link=hostname+'/'+path1+'/'+path2;}
