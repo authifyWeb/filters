@@ -2,6 +2,7 @@
 This filters.js file is actively maintained at https://github.com/authifyWeb/filters/tree/main/URL 
 Copyright: authifyWeb
 Licensed: GPL3
+Last Update: Oct-31-2024  
 */
 function filtering(url, href, origin, hostname, protocol, pathname, search, domain) {
 
@@ -127,10 +128,24 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link, link);
         return output;
-    } else if(hostname=='fame.authifyweb.com' && pathname.split('/')[1]=='user'){
-        link=hostname+'/'+pathname.split('/')[1]+'/'+pathname.split('/')[2]; 
-        var output = compare(link, link);
-        return output;
+    } else if(domain=='authifyweb.com'){
+        var path1=pathname.split('/')[1].toLowerCase(); var path2=pathname.split('/')[2].toLowerCase();
+        if(hostname!="fame.authifyweb.com" || hostname!="brand.authifyweb.com"){link=domain;}
+        if(path1 !="fame" || path1 !="brand"){link=domain;}
+        if(path1 =="fame"){link= "fame.authifyweb.com/user/" +path2;}
+        if(path1=="brand"){link="brand.authifyweb.com/org/"+ path2;}
+        if(hostname=="fame.authifyweb.com" || hostname=="brand.authifyweb.com"){link=hostname+'/'+path1+'/'+path2;}
+        var output=compare(link,href);
+
+    }
+    else if(domain=="linkedin.com"){
+        if(hostname=="about.linkedin.com"){link=domain;}
+        else{var path1=pathname.split('/')[1]?.toLowerCase(); var path2=pathname.split('/')[2]?.toLowerCase();
+        if(path1=="in"||path1=="company"){link=domain+'/'+path1+'/'+path2;}
+        else if(path1=="pulse"){return `Info: Cannot verify individual articles. Please submit the author profile URL to verify.`}
+        else{link=domain;}
+        }
+        var output=compare(link,href);
     }
 
             
@@ -333,11 +348,31 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         if((hostname !="medium.com")&& (hostname !="policy.medium.com"||hostname!="blog.medium.com"||hostname!="help.medium.com")){link=hostname;}
         else{
           var path1=pathname.split('/')[1].toLowerCase();
-          if(path1=="creators"||path1=="about"||path1=="jobs-at-medium"||path1==""||path1=="tag"||path1=="membership"||path1=="plans"){link=domain;}
-          else{link=hostname+'/'+path1;}
+          if(path1.startsWith('@')){link=hostname+'/'+path1;}
+          else{link=domain;}
         }
         var output = compare(link,href); return output;
       }
+      else if(domain=="indiegogo.com"){ 
+        if(hostname!="www.indiegogo.com"){link=domain;}
+        else{var path1=pathname.split('/')[1].toLowerCase();var path2=pathname.split('/')[2].toLowerCase();
+             if(path1=='individuals'){link=domain+'/'+path1+'/'+path2;}
+             else if(path1=='projects'){return `Info: Cannot verify individual projects, please visit user profile to verify.`;}
+             else if(path1=='indieshop'){return `Info: Cannot verify individual products, please visit user profile to verify.`;}
+             else{link=domain;}
+            }
+        var output = compare(link,href); return output;    
+        }
+      else if(domain=="kickstarter.com"){
+        if(hostname!="www.kickstarter.com"){link=domain;}
+        else{var path1=pathname.split('/')[1].toLowerCase(); var path2=pathname.split('/')[2].toLowerCase();
+            if(path1=="profile"){link=domain+'/'+path1+'/'+path2;}
+            else if(path1=="projects"){link=domain+'/'+path1+'/'+path2;}
+            else{link=domain;}
+        }
+        var output = compare(link,href); return output;
+      }  
+
       else if(domain=="start.page"){
         link=hostname;
         var output = compare(link,href); return output;
