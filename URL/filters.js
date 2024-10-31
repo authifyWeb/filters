@@ -128,10 +128,15 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link, link);
         return output;
-    } else if(hostname=='fame.authifyweb.com' && pathname.split('/')[1]=='user'){
-        link=hostname+'/'+pathname.split('/')[1]+'/'+pathname.split('/')[2]; 
-        var output = compare(link, link);
-        return output;
+    } else if(domain=='authifyweb.com'){
+        var path1=pathname.split('/')[1].toLowerCase(); var path2=pathname.split('/')[2].toLowerCase();
+        if(hostname!="fame.authifyweb.com" || hostname!="brand.authifyweb.com"){link=domain;}
+        if(path1 !="fame" || path1 !="brand"){link=domain;}
+        if(path1 =="fame"){link= "fame.authifyweb.com/user/" +path2;}
+        if(path1=="brand"){link="brand.authifyweb.com/org/"+ path2;}
+        if(hostname=="fame.authifyweb.com" || hostname=="brand.authifyweb.com"){link=hostname+'/'+path1+'/'+path2;}
+        var output=compare(link,href);
+
     }
 
             
