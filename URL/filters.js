@@ -2,6 +2,7 @@
 This filters.js file is actively maintained at https://github.com/authifyWeb/filters/tree/main/URL 
 Copyright: authifyWeb
 Licensed: GPL3
+Last Update: Oct-31-2024  
 */
 function filtering(url, href, origin, hostname, protocol, pathname, search, domain) {
 
@@ -333,8 +334,8 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         if((hostname !="medium.com")&& (hostname !="policy.medium.com"||hostname!="blog.medium.com"||hostname!="help.medium.com")){link=hostname;}
         else{
           var path1=pathname.split('/')[1].toLowerCase();
-          if(path1=="creators"||path1=="about"||path1=="jobs-at-medium"||path1==""||path1=="tag"||path1=="membership"||path1=="plans"){link=domain;}
-          else{link=hostname+'/'+path1;}
+          if(path1.startsWith('@')){link=hostname+'/'+path1;}
+          else{link=domain;}
         }
         var output = compare(link,href); return output;
       }
