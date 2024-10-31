@@ -349,7 +349,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
       else if(domain=="medium.com"){
         if((hostname !="medium.com")&& (hostname !="policy.medium.com"||hostname!="blog.medium.com"||hostname!="help.medium.com")){link=hostname;}
         else{
-          var path1=pathname.split('/')[1].toLowerCase();
+          var path1=pathname.split('/')[1]?.toLowerCase();
           if(path1.startsWith('@')){link=hostname+'/'+path1;}
           else{link=domain;}
         }
@@ -357,7 +357,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
       }
       else if(domain=="indiegogo.com"){ 
         if(hostname!="www.indiegogo.com"){link=domain;}
-        else{var path1=pathname.split('/')[1].toLowerCase();var path2=pathname.split('/')[2].toLowerCase();
+        else{var path1=pathname.split('/')[1]?.toLowerCase();var path2=pathname.split('/')[2]?.toLowerCase();
              if(path1=='individuals'){link=domain+'/'+path1+'/'+path2;}
              else if(path1=='projects'){return `Info: Cannot verify individual projects, please visit user profile to verify.`;}
              else if(path1=='indieshop'){return `Info: Cannot verify individual products, please visit user profile to verify.`;}
@@ -367,7 +367,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
       else if(domain=="kickstarter.com"){
         if(hostname!="www.kickstarter.com"){link=domain;}
-        else{var path1=pathname.split('/')[1].toLowerCase(); var path2=pathname.split('/')[2].toLowerCase();
+        else{var path1=pathname.split('/')[1]?.toLowerCase(); var path2=pathname.split('/')[2]?.toLowerCase();
             if(path1=="profile"){link=domain+'/'+path1+'/'+path2;}
             else if(path1=="projects"){link=domain+'/'+path1+'/'+path2;}
             else{link=domain;}
