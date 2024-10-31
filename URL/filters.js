@@ -5,6 +5,7 @@ Licensed: GPL3
 Last Update: Oct-31-2024  
 */
 function filtering(url, href, origin, hostname, protocol, pathname, search, domain) {
+    var link;
 
     if (protocol != "https:") {
         return `Info: This website is not secure. Please refrain from submitting personal data and don't download files from such sources`;
@@ -122,19 +123,20 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         var id = pathname.split('/')[1];
 
         if (id == "orgs" || id == "sponsors") {
-            var link = hostname + '/' + pathname.split('/')[2].toLowerCase();
+             link = hostname + '/' + pathname.split('/')[2].toLowerCase();
         } else {
-            var link = hostname + '/' + pathname.split('/')[1].toLowerCase();
+             link = hostname + '/' + pathname.split('/')[1].toLowerCase();
         }
         var output = compare(link, link);
         return output;
     } else if(domain=='authifyweb.com'){
         var path1=pathname.split('/')[1].toLowerCase(); var path2=pathname.split('/')[2].toLowerCase();
-        if(hostname!="fame.authifyweb.com" || hostname!="brand.authifyweb.com"){link=domain;}
-        if(path1 !="fame" || path1 !="brand"){link=domain;}
-        if(path1 =="fame"){link= "fame.authifyweb.com/user/" +path2;}
-        if(path1=="brand"){link="brand.authifyweb.com/org/"+ path2;}
-        if(hostname=="fame.authifyweb.com" || hostname=="brand.authifyweb.com"){link=hostname+'/'+path1+'/'+path2;}
+        if(hostname!="fame.authifyweb.com" && hostname!="brand.authifyweb.com"){link=domain;}
+        else if(path1 !="fame" && path1 !="brand"){link=domain;}
+        else if(path1=="pages" || path1=="about"){link=domain;}
+        else if(path1 =="fame"){link= "fame.authifyweb.com/user/" +path2;}
+        else if(path1=="brand"){link="brand.authifyweb.com/org/"+ path2;}
+        else if(hostname=="fame.authifyweb.com" || hostname=="brand.authifyweb.com"){link=hostname+'/'+path1+'/'+path2;}
         var output=compare(link,href);
 
     }
@@ -211,9 +213,9 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
     } else if (origin == "https://www.patreon.com") {
         var id = pathname.split('/')[1];
         if (id == "join") {
-            var link = hostname + '/' + pathname.split('/')[2].toLowerCase();
+             link = hostname + '/' + pathname.split('/')[2].toLowerCase();
         } else {
-            var link = hostname + '/' + pathname.split('/')[1].toLowerCase();
+             link = hostname + '/' + pathname.split('/')[1].toLowerCase();
         }
         var output = compare(link, link);
         return output;
@@ -226,16 +228,16 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         } else if (path1 == "pages") {
             var path2 = pathname.split('/')[2];
             if (path2 == "refund" || path2 == "about-us" || path2 == "terms" || path2 == "cookie-policy" || path2 == "privacy" || path2 == "contact" || path2 == "brand" || path2 == "influencer" || path2 == "refund-policy" || path2 == "shipping-policy") {
-                var link = hostname;
+                 link = hostname;
                 var output = compare(link, link);
                 return output;
             } else {
-                var link = hostname + '/' + path2;
+                 link = hostname + '/' + path2;
                 var output = compare(link, hostname + pathname);
                 return output;
             }
         } else {
-            var link = domain;
+             link = domain;
             var output = compare(link, href);
             return output;
         }
@@ -286,7 +288,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
             if (path1 == "products") {
                 return `Info: Cannot verify individual products, please visit user profile to verify.`;
             } else if (path1 == "collections") {
-                var link = hostname + '/' + pathname.split('/')[2].toLowerCase();
+                link = hostname + '/' + pathname.split('/')[2].toLowerCase();
             } else {
                 link = domain;
             }
