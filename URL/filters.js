@@ -138,11 +138,13 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         var output=compare(link,href);
 
     }
-    else if(domain="linkedin.com"){
-        var path1=pathname.split('/')[1].toLowerCase(); var path2=pathname.split('/')[2].toLowerCase();
+    else if(domain=="linkedin.com"){
+        if(hostname=="about.linkedin.com"){link=domain;}
+        else{var path1=pathname.split('/')[1]?.toLowerCase(); var path2=pathname.split('/')[2]?.toLowerCase();
         if(path1=="in"||path1=="company"){link=domain+'/'+path1+'/'+path2;}
         else if(path1=="pulse"){return `Info: Cannot verify individual articles. Please submit the author profile URL to verify.`}
         else{link=domain;}
+        }
         var output=compare(link,href);
     }
 
