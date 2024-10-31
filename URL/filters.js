@@ -138,7 +138,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         else if(path1=="brand"){link="brand.authifyweb.com/org/"+ path2;}
         else if(hostname=="fame.authifyweb.com" || hostname=="brand.authifyweb.com"){link=hostname+'/'+path1+'/'+path2;}
         var output=compare(link,href);
-
+        return output;
     }
     else if(domain=="linkedin.com"){
         if(hostname=="about.linkedin.com"){link=domain;}
@@ -147,7 +147,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         else if(path1=="pulse"){return `Info: Cannot verify individual articles. Please submit the author profile URL to verify.`}
         else{link=domain;}
         }
-        var output=compare(link,href);
+        var output=compare(link,href); return output;
     }
 
             
