@@ -344,10 +344,12 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         else{var path1=pathname.split('/')[1].toLowerCase();var path2=pathname.split('/')[2].toLowerCase();
              if(path1=='individuals'){link=domain+'/'+path1+'/'+path2;}
              else if(path1=='projects'){return `Info: Cannot verify individual projects, please visit user profile to verify.`;}
+             else if(path1=='indieshop'){return `Info: Cannot verify individual products, please visit user profile to verify.`;}
+             else{link=domain;}
             }
         var output = compare(link,href); return output;    
+        }
 
-      }
       else if(domain=="start.page"){
         link=hostname;
         var output = compare(link,href); return output;
