@@ -135,7 +135,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         else if(path1 !="fame" && path1 !="brand" && path1 != "user" && path1 != "id"){link=domain;}
         else if(path1=="pages"){link=domain;}
         else if(path1 =="fame"){link= "fame.authifyweb.com/user/" +path2;}
-        else if(path1=="brand"){link="brand.authifyweb.com/org/"+ path2;}
+        else if(path1=="brand"){link="brand.authifyweb.com/id/"+ path2;}
         else if(hostname=="fame.authifyweb.com" || hostname=="brand.authifyweb.com"){link=hostname+'/'+path1+'/'+path2;}
         var output=compare(link,href);
         return output;
