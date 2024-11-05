@@ -463,7 +463,8 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         return output;
     } else if(domain=="carrd.co"){
         link = hostname; var output = compare(link, link); return output;
-    }else if (domain == "crew.work") {
+    } else if (domain=="neocities.org") { link = hostname; var output = compare(link, link); return output; }
+    else if (domain == "crew.work") {
         link = hostname;
         var output = compare(link, link);
         return output;
