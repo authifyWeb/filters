@@ -205,12 +205,16 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link, href);
         return output;
-    } else if (origin == "https://ko-fi.com" || origin == "https://liberapay.com" || origin == "https://opencollective.com") {
+    } else if (origin == "https://ko-fi.com" || origin == "https://opencollective.com") {
 
         link = hostname + '/' + pathname.split('/')[1].toLowerCase();
         var output = compare(link, link);
         return output;
     } else if(domain=="buymeacoffee.com"){
+        link = hostname + '/' + pathname.split('/')[1].toLowerCase();
+        var output = compare(link, href);
+        return output;
+    } else if(domain=="liberapay.com"){
         link = hostname + '/' + pathname.split('/')[1].toLowerCase();
         var output = compare(link, href);
         return output;
