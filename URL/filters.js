@@ -205,7 +205,7 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link, href);
         return output;
-    } else if (origin == "https://ko-fi.com" || origin == "https://opencollective.com") {
+    } else if (origin == "https://ko-fi.com" ) {
 
         link = hostname + '/' + pathname.split('/')[1].toLowerCase();
         var output = compare(link, link);
@@ -215,6 +215,10 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         var output = compare(link, href);
         return output;
     } else if(domain=="liberapay.com"){
+        link = hostname + '/' + pathname.split('/')[1].toLowerCase();
+        var output = compare(link, href);
+        return output;
+    } else if(domain=="opencollective.com"){
         link = hostname + '/' + pathname.split('/')[1].toLowerCase();
         var output = compare(link, href);
         return output;
