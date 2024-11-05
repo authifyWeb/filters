@@ -378,6 +378,13 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
             if (own_path.includes(path1)) {link=domain;}
             else {link=domain+'/'+path1;}  
         } var output = compare(link,href); return output;
+    } else if(domain=="throne.com") { if(hostname!="throne.com"){link=domain;}
+        else{path1=pathname.split('/')[1]?.toLowerCase(); 
+            own_path=['partner-stores','login','press','contact','how-it-works','about','careers','privacy','terms'];
+            if (own_path.includes(path1)) {link=domain;}
+            else{link=domain+'/'+path1;}
+        } var output = compare(link,href); return output;
+
     } else if(domain=="indiegogo.com"){ 
         if(hostname!="www.indiegogo.com"){link=domain;}
         else{var path1=pathname.split('/')[1]?.toLowerCase();var path2=pathname.split('/')[2]?.toLowerCase();
