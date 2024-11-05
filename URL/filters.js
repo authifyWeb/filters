@@ -314,6 +314,9 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         link = hostname + '/' + path1;
         var output = compare(link, href);
         return output;
+    } else if(domain=="tiktok.com"){ var path1=pathname.split('/')[1].toLowerCase();
+        link=domain+'/'+path1;
+        var output = compare(link, href); return output;
     } else if (domain == "liinks.co") {
         if (hostname != "www.liinks.co") {
             link = domain;
