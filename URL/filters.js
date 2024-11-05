@@ -370,8 +370,15 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
           else{link=domain;}
         }
         var output = compare(link,href); return output;
-      }
-      else if(domain=="indiegogo.com"){ 
+      } else if(domain=="tumblr.com"){
+        if (hostname !="www.tumblr.com" && hostname!="about.tumblr.com" && hostname!="help.tumblr.com" && hostname !="changes.tumblr.com"){link=hostname;}
+        else{
+            path1=pathname.split('/')[1]?.toLowerCase();
+            own_path=['about','apps','help','policy','','explore','tagged','privacy'];
+            if (own_path.includes(path1)) {link=domain;}
+            else {link=domain+'/'+path1;}  
+        } var output = compare(link,href); return output;
+    } else if(domain=="indiegogo.com"){ 
         if(hostname!="www.indiegogo.com"){link=domain;}
         else{var path1=pathname.split('/')[1]?.toLowerCase();var path2=pathname.split('/')[2]?.toLowerCase();
              if(path1=='individuals'){link=domain+'/'+path1+'/'+path2;}
