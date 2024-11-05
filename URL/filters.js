@@ -396,7 +396,8 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
             else{link=domain;}
         }
         var output = compare(link,href); return output;
-      }  
+      }
+      else if(domain=="fourthwall.com"){link=hostname; var output = compare(link,href); return output; }  
 
       else if(domain=="start.page"){
         link=hostname;
