@@ -61,8 +61,8 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         return output;
     } else if (hostname == "www.threads.net") {
 
-        link = hostname + '/' + pathname.split('/')[1].toLowerCase();
-        var output = compare(link, link);
+        link = domain + '/' + pathname.split('/')[1].toLowerCase();
+        var output = compare(link, href);
         return output;
     } else if (origin == "https://www.youtube.com") {
         var channel = (pathname.split('/')[1]);
