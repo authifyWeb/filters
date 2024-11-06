@@ -410,8 +410,13 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
            if(path1.startsWith('~')) {link=domain+'/'+path1;}
         } 
         var output = compare(link,href); return output;
-    }
-      else if(domain=="fourthwall.com"){link=hostname; var output = compare(link,href); return output; }  
+    } else if(domain=="about.me"){
+        let path1=pathname.split('/')[1]?.toLowerCase();
+        own_path=['login','signup','features','pricing','emailsignature','side-hustlers','press','privacy','legal',''];
+        if (own_path.includes(path1)) {link=domain;}
+            else {link=domain+'/'+path1;}  
+        var output = compare(link,href); return output;
+    } else if(domain=="fourthwall.com"){link=hostname; var output = compare(link,href); return output; }  
 
       else if(domain=="start.page"){
         link=hostname;
