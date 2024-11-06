@@ -404,6 +404,13 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link,href); return output;
       }
+      else if(domain=="panix.com"){let path1=pathname.split('/')[1]?.toLowerCase();
+        if(hostname!="panix.com" || path1==""){link=domain;} 
+        else{
+           if(path1.startsWith('~')) {link=domain+'/'+path1;}
+        } 
+        var output = compare(link,href); return output;
+    }
       else if(domain=="fourthwall.com"){link=hostname; var output = compare(link,href); return output; }  
 
       else if(domain=="start.page"){
