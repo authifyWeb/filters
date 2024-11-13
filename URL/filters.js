@@ -450,6 +450,11 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
     else{link=hostname+'/'+path1;}
     var output=compare(link,href); return output;
     }
+    else if(domain=="dribbble.com"){path1=pathname.split('/')[1]?.toLowerCase();
+        if(path1=="shots"){return `Info: Cannot verify individual shots, please visit user profile to verify.`;}
+        else{link=domain+'/'+path1;}
+        var output=compare(link,href); return output;
+    }
     else if(hostname=="pages.razorpay.com"){
         path1=pathname.split('/')[1].toLowerCase();
         link=hostname+'/'+path1;
