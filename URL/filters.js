@@ -54,7 +54,10 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         }
         var output = compare(link, href);
         return output;
-    } else if (origin == "https://twitter.com" || domain=="x.com") {
+    }else if(domain=="bsky.app"){var path1=pathname.split('/')[1]?.toLowerCase(); var path2=pathname.split('/')[2]?.toLowerCase();
+        link=domain+'/'+path1+'/'+path2;
+        var output = compare(link, href); return output;
+    }else if (origin == "https://twitter.com" || domain=="x.com") {
         hostname="twitter.com";
         link = hostname + '/' + pathname.split('/')[1].toLowerCase();
         var output = compare(link, link);
