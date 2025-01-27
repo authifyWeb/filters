@@ -151,6 +151,12 @@ function filtering(url, href, origin, hostname, protocol, pathname, search, doma
         else{link=domain;}
         }
         var output=compare(link,href); return output;
+    }else if(domain=="cal.com"){ 
+        var path1=pathname.split('/')[1]?.toLowerCase();
+        if(path1 == "calcom"|| path1 =="scheduling" || path1=="pricing"||path1=="==ai"||path1=="docs"||path1=="platform"||path1=="enterprise"||path1=="download"||path1=="faq"||path1=="jobs"||path1=="about"||path1=="resources"||path1=="blog") {link=domain;}
+        else{link=domain+'/'+path1;}
+        if(hostname!="cal.com"){link=domain;}
+        var output=compare(link,href); return output;
     }
 
             
